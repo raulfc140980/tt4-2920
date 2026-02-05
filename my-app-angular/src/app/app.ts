@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Counter } from './components/counter/counter';
+import { ListProducts } from './components/list-products/list-products';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule, Counter, ListProducts],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
@@ -16,8 +18,8 @@ export class App {
   items = ["item A", "item B", "item C", "item D", "item E", "item F", "item G"];
   isActive = false
   textColor = 'red';
-  fontSize = '50px';
-
+  fontSize = 50;
+  counterName = 'Abs Counter';
 
 clickButton() {
     console.log("Button Pressed");
