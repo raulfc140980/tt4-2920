@@ -1,0 +1,28 @@
+<h2>⚡ Pokemon Search</h2>
+
+<button (click)="activeTab='search'">Search</button>
+<button (click)="activeTab='random'">Random</button>
+
+<!-- SEARCH TAB -->
+<div *ngIf="activeTab === 'search'">
+  <input
+    [(ngModel)]="searchValue"
+    placeholder="Search by name or ID (e.g. Pikachu, 25)"
+    (keyup.enter)="searchPokemon()"
+  />
+  <button (click)="searchPokemon()">Search</button>
+</div>
+
+<!-- RANDOM TAB -->
+<div *ngIf="activeTab === 'random'">
+  <button (click)="getRandomPokemon()">Get Random Pokemon</button>
+</div>
+
+<!-- LOADING -->
+<p *ngIf="loading">Loading...</p>
+
+<!-- ERROR -->
+<p *ngIf="error" style="color:red">{{ error }}</p>
+
+<!-- CARD -->
+<app-pokemon-card *ngIf="pokemon" [pokemon]="pokemon"></app-pokemon-card>

@@ -1,0 +1,15 @@
+<div class="card">
+  <img [src]="pokemon.sprites.front_default" />
+
+  <h3>{{ pokemon.name | titlecase }}</h3>
+  <small>#{{ pokemon.id }}</small>
+
+  <div>
+    <span *ngFor="let type of pokemon.types">
+      {{ type.type.name }}
+    </span>
+  </div>
+
+  <p>Height: {{ pokemon.height / 10 }} m</p>
+  <p>Weight: {{ pokemon.weight / 10 }} kg</p>
+</div>
